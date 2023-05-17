@@ -57,7 +57,10 @@ class Tvshow:
     # delete tv show
     @classmethod
     def delete_tvshow(cls,data):
-        query="DELETE t1, t2 FROM tvshows t1 LEFT JOIN likes t2 ON t1.id = t2.tvshow_id WHERE t1.id = %(id)s AND (t2.tvshow_id = %(id)s OR t2.tvshow_id IS NULL);"
+        # query="DELETE t1, t2 FROM tvshows t1 LEFT JOIN likes t2 ON t1.id = t2.tvshow_id WHERE t1.id = %(id)s AND (t2.tvshow_id = %(id)s OR t2.tvshow_id IS NULL);"
+        query="DELETE FROM likes WHERE tvshow_id =  %(id)s;"
+        results = connectToMySQL(DATABASE).query_db(query,data)
+        query="DELETE FROM tvshows WHERE tvshows.id = %(id)s;"
         results = connectToMySQL(DATABASE).query_db(query,data)
         return results
     
