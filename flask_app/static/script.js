@@ -3,7 +3,7 @@ function like(id,user_id) {
     element.classList.add("no-box-shadow");
     element.innerText="like"
     const data = {'user_id':user_id,'tvshow_id':id};
-    const request = new Request('http://localhost:5000//tvshow/like', {
+    const request = new Request('/tvshow/like', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
@@ -19,7 +19,7 @@ function unlike(id,user_id) {
     element.classList.add("no-box-shadow");
     element.innerText="unlike"
     const data = {'user_id':user_id,'tvshow_id':id};
-    const request = new Request('http://localhost:5000//tvshow/unlike', {
+    const request = new Request('/tvshow/unlike', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
