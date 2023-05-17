@@ -51,7 +51,6 @@
                     <td class="text-warning">
                         <div class="form-group">
                             {%if tvshow.user_id != user.id%}
-
                             {%if tvshow.id in user_likes%}
                             <button class="btn btn-link text-decoration-none text-warning no-box-shadow"
                                 id="{{tvshow.id}}" onclick="unlike(id,'{{user.id}}')">like</button>
@@ -59,18 +58,14 @@
                             <button class="btn btn-link text-decoration-none text-warning no-box-shadow"
                                 id="{{tvshow.id}}" onclick="like(id,'{{user.id}}')">unlike</button>
                             {% endif %}
-
-
                             <input type="hidden" value="{{tvshow.id}}" name="tvshow_id">
                             <input type="hidden" value="{{user.id}}" name="user_id">
-
                             {%endif%}
                         </div>
                     </td>
                 </tr>
                 {%endfor%}
             </table>
-
         </div>
     </div>
 </body>
